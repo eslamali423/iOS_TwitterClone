@@ -16,6 +16,7 @@
 		287690A028106491007CD8C4 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2876909F28106491007CD8C4 /* SearchViewController.swift */; };
 		287690A3281064A2007CD8C4 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287690A2281064A2007CD8C4 /* NotificationViewController.swift */; };
 		287690A6281064B0007CD8C4 /* DirectMessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287690A5281064B0007CD8C4 /* DirectMessagesViewController.swift */; };
+		287690AC281067E8007CD8C4 /* TweetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287690AB281067E8007CD8C4 /* TweetTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		2876909F28106491007CD8C4 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		287690A2281064A2007CD8C4 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		287690A5281064B0007CD8C4 /* DirectMessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectMessagesViewController.swift; sourceTree = "<group>"; };
+		287690AB281067E8007CD8C4 /* TweetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,10 +64,11 @@
 		2876908228106279007CD8C4 /* TwitterClone */ = {
 			isa = PBXGroup;
 			children = (
+				287690AA281067BD007CD8C4 /* CustomCell */,
 				2876909A28106464007CD8C4 /* Controllers */,
+				2876908728106279007CD8C4 /* MainTabBarViewController.swift */,
 				2876908328106279007CD8C4 /* AppDelegate.swift */,
 				2876908528106279007CD8C4 /* SceneDelegate.swift */,
-				2876908728106279007CD8C4 /* MainTabBarViewController.swift */,
 				2876908C2810627A007CD8C4 /* Assets.xcassets */,
 				2876908E2810627A007CD8C4 /* LaunchScreen.storyboard */,
 				287690912810627A007CD8C4 /* Info.plist */,
@@ -76,12 +79,28 @@
 		2876909A28106464007CD8C4 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				287690A8281067AC007CD8C4 /* Core */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		287690A8281067AC007CD8C4 /* Core */ = {
+			isa = PBXGroup;
+			children = (
 				2876909B28106487007CD8C4 /* HomeViewController.swift */,
 				2876909F28106491007CD8C4 /* SearchViewController.swift */,
 				287690A2281064A2007CD8C4 /* NotificationViewController.swift */,
 				287690A5281064B0007CD8C4 /* DirectMessagesViewController.swift */,
 			);
-			path = Controllers;
+			path = Core;
+			sourceTree = "<group>";
+		};
+		287690AA281067BD007CD8C4 /* CustomCell */ = {
+			isa = PBXGroup;
+			children = (
+				287690AB281067E8007CD8C4 /* TweetTableViewCell.swift */,
+			);
+			path = CustomCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -160,6 +179,7 @@
 				2876908628106279007CD8C4 /* SceneDelegate.swift in Sources */,
 				2876909C28106487007CD8C4 /* HomeViewController.swift in Sources */,
 				287690A6281064B0007CD8C4 /* DirectMessagesViewController.swift in Sources */,
+				287690AC281067E8007CD8C4 /* TweetTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
