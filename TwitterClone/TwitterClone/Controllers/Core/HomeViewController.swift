@@ -16,10 +16,25 @@ class HomeViewController: UIViewController {
         return table
     }()
     
+    private let createTweetButton : UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .systemBlue
+        button.tintColor = .white
+        button.setImage(UIImage(systemName: "square.and.pencil", withConfiguration: UIImage.SymbolConfiguration(pointSize: 32, weight: .medium)),for: .normal)
+        button.layer.cornerRadius = 35
+        button.layer.shadowColor = UIColor.label.cgColor
+        button.layer.shadowOpacity = 0.4
+        button.layer.shadowRadius = 10
+        button.translatesAutoresizingMaskIntoConstraints = false
+        
+        return button
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         view.addSubview(tableView)
+        view.addSubview(createTweetButton)
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -31,6 +46,8 @@ class HomeViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         tableView.frame = view.frame
+        
+        createTweetButton.frame = CGRect(x: view.frame.width - 90, y: view.frame.height - 90 - view.safeAreaInsets.bottom, width: 70  , height: 70)
         
     }
     
