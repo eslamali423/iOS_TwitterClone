@@ -17,6 +17,7 @@
 		287690A3281064A2007CD8C4 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287690A2281064A2007CD8C4 /* NotificationViewController.swift */; };
 		287690A6281064B0007CD8C4 /* DirectMessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287690A5281064B0007CD8C4 /* DirectMessagesViewController.swift */; };
 		287690AC281067E8007CD8C4 /* TweetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287690AB281067E8007CD8C4 /* TweetTableViewCell.swift */; };
+		287A94C62811F66B004950F5 /* AddTweetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287A94C52811F66B004950F5 /* AddTweetViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		287690A2281064A2007CD8C4 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		287690A5281064B0007CD8C4 /* DirectMessagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectMessagesViewController.swift; sourceTree = "<group>"; };
 		287690AB281067E8007CD8C4 /* TweetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetTableViewCell.swift; sourceTree = "<group>"; };
+		287A94C52811F66B004950F5 /* AddTweetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTweetViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				287690A8281067AC007CD8C4 /* Core */,
+				287A94C52811F66B004950F5 /* AddTweetViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -175,6 +178,7 @@
 				287690A028106491007CD8C4 /* SearchViewController.swift in Sources */,
 				2876908828106279007CD8C4 /* MainTabBarViewController.swift in Sources */,
 				287690A3281064A2007CD8C4 /* NotificationViewController.swift in Sources */,
+				287A94C62811F66B004950F5 /* AddTweetViewController.swift in Sources */,
 				2876908428106279007CD8C4 /* AppDelegate.swift in Sources */,
 				2876908628106279007CD8C4 /* SceneDelegate.swift in Sources */,
 				2876909C28106487007CD8C4 /* HomeViewController.swift in Sources */,
