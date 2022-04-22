@@ -33,6 +33,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        handelAuthentication()
         view.addSubview(tableView)
         view.addSubview(createTweetButton)
         tableView.delegate = self
@@ -51,7 +52,16 @@ class HomeViewController: UIViewController {
         
     }
     
-    
+    //MARK:- Handel Authentication  (Auto Login)
+    func handelAuthentication(){
+        if UserDefaults.standard.bool(forKey: "isLoggedIn") == false {
+         
+            let loginVC = LoginViewController()
+            loginVC.modalPresentationStyle = .fullScreen
+            present(loginVC, animated: true, completion: nil)
+            
+        }
+    }
     
 }
 
