@@ -45,7 +45,7 @@ class TweetTableViewCell: UITableViewCell {
     private let tweetText : UILabel = {
        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "eslam ali mahmoud hassan salam eslam ali mahmoud hassan salam eslam ali mahmoud hassan salam eslam ali mahmoud hassan salam eslam ali mahmoud hassan salam eslam ali mahmoud hassan salam eslam ali mahmoud hassan salam eslam ali mahmoud hassan salam eslam ali mahmoud hassan salam eslam ali mahmoud hassan salam eslam ali mahmoud hassan salam eslam ali mahmoud hassan salam eslam ali mahmoud hassan salam "
+        label.text = "eslam ali mahmoud hassan salam eslam ali mahmoud hassan salam eslam ali mahmoud hassan salam eslam ali mahmoud hassan salam eslam ali mahmoud hassan salama "
         label.font = .systemFont(ofSize: 16, weight: .regular)
         label.textColor = .label
         label.numberOfLines = 0

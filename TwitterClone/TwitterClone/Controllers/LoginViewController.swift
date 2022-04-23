@@ -93,7 +93,7 @@ class LoginViewController: UIViewController {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Sign In", for: .normal)
-        button.backgroundColor = .systemPink
+        button.backgroundColor = .brown
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 15
         button.titleLabel?.font = .systemFont(ofSize: 20, weight : .medium)

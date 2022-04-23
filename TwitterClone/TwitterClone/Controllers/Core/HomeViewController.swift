@@ -20,7 +20,8 @@ class HomeViewController: UIViewController {
         let button = UIButton()
         button.backgroundColor = .systemBlue
         button.tintColor = .white
-        button.setImage(UIImage(systemName: "square.and.pencil", withConfiguration: UIImage.SymbolConfiguration(pointSize: 32, weight: .medium)),for: .normal)
+        button.setImage(UIImage(systemName: "square.and.pencil",
+                                withConfiguration: UIImage.SymbolConfiguration(pointSize: 32, weight: .medium)),for: .normal)
         button.layer.cornerRadius = 35
         button.layer.shadowColor = UIColor.label.cgColor
         button.layer.shadowOpacity = 0.4
@@ -33,7 +34,9 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        handelAuthentication()
+     
+        
+        
         view.addSubview(tableView)
         view.addSubview(createTweetButton)
         tableView.delegate = self
