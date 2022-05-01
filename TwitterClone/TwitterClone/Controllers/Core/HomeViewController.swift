@@ -45,6 +45,11 @@ class HomeViewController: UIViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        handelAuthentication()
+    }
 
     
     override func viewDidLayoutSubviews() {
@@ -57,7 +62,8 @@ class HomeViewController: UIViewController {
     
     //MARK:- Handel Authentication  (Auto Login)
     func handelAuthentication(){
-        if UserDefaults.standard.bool(forKey: "isLoggedIn") == false {
+        
+        if UserDefaults.standard.bool(forKey: "isLoggedIn") == true {
          
             let loginVC = LoginViewController()
             loginVC.modalPresentationStyle = .fullScreen
