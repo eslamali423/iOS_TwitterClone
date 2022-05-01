@@ -7,9 +7,23 @@
 
 import UIKit
 
+
+//MARK:- Protocol for Button Actions
+protocol TweetTableViewCellDelegate : AnyObject {
+    func tweetTableViewCellDidTapReplyButton()
+    func tweetTableViewCellDidTapRetweetButton()
+    func tweetTableViewCellDidTapLikeButton()
+    func tweetTableViewCellDidTapShareButton()
+    
+}
+
 class TweetTableViewCell: UITableViewCell {
     
+    
+    //MARK:- Vars
     static let identifier = "TweetTableViewCell"
+    
+    weak var delegate : TweetTableViewCellDelegate?
     
     private let avatarImageView : UIImageView = {
         let image =  UIImageView()
@@ -59,6 +73,7 @@ class TweetTableViewCell: UITableViewCell {
         button.setImage(UIImage(systemName: "heart",
                                 withConfiguration: UIImage.SymbolConfiguration(pointSize: 18, weight: .regular)), for: .normal)
         button.tintColor = .systemPink
+        button.addTarget(self, action: #selector(didTapLikeButton), for: .touchUpInside)
         return button
     }()
     
@@ -68,6 +83,7 @@ class TweetTableViewCell: UITableViewCell {
         button.setImage(UIImage(systemName: "bubble.left",
                                 withConfiguration: UIImage.SymbolConfiguration(pointSize: 16, weight: .regular)), for: .normal)
         button.tintColor = .systemGray2
+     //   button.addTarget(self, action: #selector(didTapReplyButton), for: .touchUpInside)
         return button
     }()
     
@@ -77,6 +93,7 @@ class TweetTableViewCell: UITableViewCell {
         button.setImage(UIImage(systemName: "arrow.2.squarepath",
                                 withConfiguration: UIImage.SymbolConfiguration(pointSize: 18, weight: .regular)), for: .normal)
         button.tintColor = .systemGray
+        button.addTarget(self, action: #selector(didTapRetweetButton), for: .touchUpInside)
         return button
     }()
     
@@ -86,11 +103,9 @@ class TweetTableViewCell: UITableViewCell {
         button.setImage(UIImage(systemName: "square.and.arrow.up",
                                 withConfiguration: UIImage.SymbolConfiguration(pointSize: 18, weight: .regular)), for: .normal)
         button.tintColor = .systemGray
+        button.addTarget(self, action: #selector(didTapShareButton), for: .touchUpInside)
         return button
     }()
-    
-    
-    
     
     
     private let stackView : UIStackView = {
@@ -103,22 +118,30 @@ class TweetTableViewCell: UITableViewCell {
         return stackView
     }()
     
+    //MARK:- Life Cycle
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         
         setupViews()
         configureConstraints()
+        setButtonsTarget()
         
         
     }
+ 
+    required init?(coder: NSCoder) {
+        fatalError()
+    }
     
+    
+    //MARK:- Setup Subviews To the cell
     private func setupViews(){
         contentView.addSubview(avatarImageView)
         contentView.addSubview(displayNameLabel)
         contentView.addSubview(usernameLabel)
         contentView.addSubview(tweetText)
-       
+        
         stackView.addArrangedSubview(replyButton)
         stackView.addArrangedSubview(retweetButton)
         stackView.addArrangedSubview(likeButton)
@@ -127,12 +150,9 @@ class TweetTableViewCell: UITableViewCell {
         contentView.addSubview(stackView)
         
         
+        
     }
-    
-    required init?(coder: NSCoder) {
-        fatalError()
-    }
-    
+    //MARK:- Configure Layouts Constraints 
     private func configureConstraints() {
         NSLayoutConstraint.activate([
             
@@ -160,5 +180,32 @@ class TweetTableViewCell: UITableViewCell {
         
         
     }
+    
+    private func setButtonsTarget(){
+        replyButton.addTarget(self, action: #selector(didTapReplyButton), for: .touchUpInside)
+        likeButton.addTarget(self, action: #selector(didTapLikeButton), for: .touchUpInside)
+        retweetButton.addTarget(self, action: #selector(didTapRetweetButton), for: .touchUpInside)
+        shareButton.addTarget(self, action: #selector(didTapShareButton), for: .touchUpInside)
+    }
+    
+    //MARK:- Buttons Actions
+    
+    @objc func didTapReplyButton(){
+        delegate?.tweetTableViewCellDidTapReplyButton()
+        
+    }
+    @objc func didTapRetweetButton(){
+        delegate?.tweetTableViewCellDidTapRetweetButton()
+
+    }
+    @objc func didTapLikeButton(){
+        delegate?.tweetTableViewCellDidTapLikeButton()
+    }
+  
+    @objc func didTapShareButton(){
+        delegate?.tweetTableViewCellDidTapShareButton()
+    }
+    
+    
     
 }

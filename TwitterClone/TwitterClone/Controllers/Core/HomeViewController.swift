@@ -85,9 +85,33 @@ extension HomeViewController : UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
            
-    
+        cell.delegate = self
         return cell
     }
     
    
+}
+
+extension HomeViewController : TweetTableViewCellDelegate {
+    func tweetTableViewCellDidTapReplyButton() {
+        print("reply pressed")
+    }
+    
+    func tweetTableViewCellDidTapRetweetButton() {
+        print("retweet pressed")
+
+    }
+    
+    func tweetTableViewCellDidTapLikeButton() {
+        print("like pressed")
+
+    }
+    
+    func tweetTableViewCellDidTapShareButton() {
+        print("share pressed")
+
+    }
+    
+    
+    
 }
