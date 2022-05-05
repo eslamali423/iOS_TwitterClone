@@ -21,7 +21,7 @@ class HomeViewController: UIViewController {
         button.backgroundColor = .systemBlue
         button.tintColor = .white
         button.setImage(UIImage(systemName: "square.and.pencil",
-                                withConfiguration: UIImage.SymbolConfiguration(pointSize: 32, weight: .medium)),for: .normal)
+                                withConfiguration: UIImage.SymbolConfiguration(pointSize: 28, weight: .medium)),for: .normal)
         button.layer.cornerRadius = 35
         button.layer.shadowColor = UIColor.label.cgColor
         button.layer.shadowOpacity = 0.4
@@ -35,7 +35,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
 
         animateTweetButton()
-        
+        configureNavBar()
         
         view.addSubview(tableView)
         view.addSubview(createTweetButton)
@@ -43,7 +43,7 @@ class HomeViewController: UIViewController {
         tableView.dataSource = self
         
     
-       
+       title = "HOME"
         
     }
     
@@ -62,8 +62,24 @@ class HomeViewController: UIViewController {
         
     }
     
+    //MARK:- Configure Navigation Controller Function
+    func configureNavBar()  {
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+      
+    }
     
     
+    //MARK:- Animation
     func animateTweetButton()  {
         UIView.animateKeyframes(withDuration: 0.5, delay: 0, options: [.repeat, .autoreverse]) {
             self.createTweetButton.frame = CGRect(x: self.createTweetButton.frame.minX - 1, y: self.createTweetButton.frame.minY - 1, width: self.createTweetButton.frame.size.width + 2, height: self.createTweetButton.frame.size.width + 2)

@@ -72,7 +72,6 @@
 			children = (
 				287690AA281067BD007CD8C4 /* CustomCell */,
 				2876909A28106464007CD8C4 /* Controllers */,
-				2876908728106279007CD8C4 /* MainTabBarViewController.swift */,
 				2876908328106279007CD8C4 /* AppDelegate.swift */,
 				2876908528106279007CD8C4 /* SceneDelegate.swift */,
 				2876908C2810627A007CD8C4 /* Assets.xcassets */,
@@ -89,6 +88,7 @@
 				287A94C52811F66B004950F5 /* AddTweetViewController.swift */,
 				287A94C828133E8B004950F5 /* LoginViewController.swift */,
 				280F52A928230B0F00F95E58 /* TweetPreviewViewController.swift */,
+				2876908728106279007CD8C4 /* MainTabBarViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";

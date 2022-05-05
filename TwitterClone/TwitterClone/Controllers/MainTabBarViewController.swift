@@ -14,9 +14,9 @@ class MainTabBarViewController : UITabBarController {
         view.backgroundColor = .systemBackground
         
         let vc1 = HomeViewController()
-        let vc2 = SearchViewController()
-        let vc3 = NotificationViewController()
-        let vc4 = DirectMessagesViewController()
+        let vc2 =  UINavigationController(rootViewController: SearchViewController())
+        let vc3 = UINavigationController(rootViewController:  NotificationViewController())
+        let vc4 = UINavigationController(rootViewController:  DirectMessagesViewController())
         
         
         vc1.tabBarItem.image = UIImage(systemName: "house")
@@ -30,8 +30,26 @@ class MainTabBarViewController : UITabBarController {
         vc4.tabBarItem.image = UIImage(systemName: "envelope")
         vc4.tabBarItem.selectedImage = UIImage(systemName: "envelope.fill")
         
+        
+       
+        
+        tabBar.tintColor = .label
+        
         setViewControllers([vc1, vc2, vc3, vc4], animated: true)
        
+        
+ 
+    
+      
+
+      
+    
+       
+        
+      
+        
+        
+        
     }
 
 
