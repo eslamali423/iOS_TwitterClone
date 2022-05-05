@@ -34,7 +34,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-     
+        animateTweetButton()
         
         
         view.addSubview(tableView)
@@ -42,6 +42,8 @@ class HomeViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
+    
+       
         
     }
     
@@ -59,6 +61,15 @@ class HomeViewController: UIViewController {
         createTweetButton.frame = CGRect(x: view.frame.width - 90, y: view.frame.height - 90 - view.safeAreaInsets.bottom, width: 70  , height: 70)
         
     }
+    
+    
+    
+    func animateTweetButton()  {
+        UIView.animateKeyframes(withDuration: 0.5, delay: 0, options: [.repeat, .autoreverse]) {
+            self.createTweetButton.frame = CGRect(x: self.createTweetButton.frame.minX - 1, y: self.createTweetButton.frame.minY - 1, width: self.createTweetButton.frame.size.width + 2, height: self.createTweetButton.frame.size.width + 2)
+        }
+    }
+    
     
     //MARK:- Handel Authentication  (Auto Login)
     func handelAuthentication(){
