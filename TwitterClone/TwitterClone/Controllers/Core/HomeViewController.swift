@@ -8,9 +8,9 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-
+    
     private let tableView : UITableView = {
-       let table =  UITableView()
+        let table =  UITableView()
         table.register(TweetTableViewCell.self, forCellReuseIdentifier: TweetTableViewCell.identifier)
         
         return table
@@ -31,19 +31,25 @@ class HomeViewController: UIViewController {
         return button
     }()
     
+    
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemRed
-       // animateTweetButton()
-        configureNavBar()
         
+        
+        configureNavBar()
+        // animateTweetButton()
         view.addSubview(tableView)
         view.addSubview(createTweetButton)
         tableView.delegate = self
         tableView.dataSource = self
         
-    
-       title = "HOME"
+        
+        title = "Home"
         createTweetButton.addTarget(self, action: #selector(didTapCreateTweetButton), for: .touchUpInside)
     }
     
@@ -52,7 +58,7 @@ class HomeViewController: UIViewController {
         
         handelAuthentication()
     }
-
+    
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -64,11 +70,43 @@ class HomeViewController: UIViewController {
     
     //MARK:- Configure Navigation Controller Function
     func configureNavBar()  {
-
+        
+        // set the logo in the center
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = UIImage(named: "logo")
+        
+        let contentView = UIView()
+        self.navigationItem.titleView = contentView
+        self.navigationItem.titleView?.addSubview(imageView)
+        imageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
+        imageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
+        
+        // set profile image in the left
+        let containerView = UIControl(frame: CGRect.init(x: 0, y: 0, width: 30, height: 30))
+        let image = UIImageView(frame: CGRect.init(x: 0, y: 0, width: 30, height: 30))
+        image.backgroundColor = .systemBlue
+        image.layer.cornerRadius = image.layer.frame.size.width / 2
+        containerView.addSubview(image)
+        let profileImage = UIBarButtonItem(customView: containerView)
+        profileImage.width = 20
+        navigationItem.leftBarButtonItem = profileImage
+        
+        // set the right buton to the navBar
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "wand.and.stars"), style: .done, target: self, action: nil)
+        
+        
+        navigationController?.navigationBar.tintColor = .systemBlue
+        
+        
+        
+        
     }
     
     @objc private func didTapCreateTweetButton () {
-     
+        
         let createTweetVC = AddTweetViewController()
         navigationController?.pushViewController(createTweetVC, animated: true)
         
@@ -87,7 +125,7 @@ class HomeViewController: UIViewController {
     func handelAuthentication(){
         
         if UserDefaults.standard.bool(forKey: "isLoggedIn") == true {
-         
+            
             let loginVC = LoginViewController()
             loginVC.modalPresentationStyle = .fullScreen
             present(loginVC, animated: true, completion: nil)
@@ -107,7 +145,7 @@ extension HomeViewController : UITableViewDelegate, UITableViewDataSource {
         guard let cell =  tableView.dequeueReusableCell(withIdentifier: TweetTableViewCell.identifier, for: indexPath) as? TweetTableViewCell else {
             return UITableViewCell()
         }
-           
+        
         cell.delegate = self
         return cell
     }
@@ -123,7 +161,7 @@ extension HomeViewController : UITableViewDelegate, UITableViewDataSource {
         
     }
     
-   
+    
 }
 
 extension HomeViewController : TweetTableViewCellDelegate {
@@ -133,17 +171,17 @@ extension HomeViewController : TweetTableViewCellDelegate {
     
     func tweetTableViewCellDidTapRetweetButton() {
         print("retweet pressed")
-
+        
     }
     
     func tweetTableViewCellDidTapLikeButton() {
         print("like pressed")
-
+        
     }
     
     func tweetTableViewCellDidTapShareButton() {
         print("share pressed")
-
+        
     }
     
     

@@ -79,7 +79,7 @@ class AddTweetViewController: UIViewController {
     
     //MARK:- Tweet Button
     @objc private func didTapTweetButton() {
-        
+        navigationController?.popViewController(animated: true)
     }
     
     
