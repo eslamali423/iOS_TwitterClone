@@ -26,14 +26,14 @@ class HomeViewController: UIViewController {
         button.layer.shadowColor = UIColor.label.cgColor
         button.layer.shadowOpacity = 0.4
         button.layer.shadowRadius = 10
-        button.translatesAutoresizingMaskIntoConstraints = false
+        
         
         return button
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        view.backgroundColor = .systemRed
         animateTweetButton()
         configureNavBar()
         
@@ -44,7 +44,7 @@ class HomeViewController: UIViewController {
         
     
        title = "HOME"
-        
+        createTweetButton.addTarget(self, action: #selector(didTapCreateTweetButton), for: .touchUpInside)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -59,23 +59,19 @@ class HomeViewController: UIViewController {
         tableView.frame = view.frame
         
         createTweetButton.frame = CGRect(x: view.frame.width - 90, y: view.frame.height - 90 - view.safeAreaInsets.bottom, width: 70  , height: 70)
-        
+        createTweetButton.addTarget(self, action: #selector(didTapCreateTweetButton), for: .touchUpInside)
     }
     
     //MARK:- Configure Navigation Controller Function
     func configureNavBar()  {
+
+    }
+    
+    @objc private func didTapCreateTweetButton () {
+     
+        let createTweetVC = AddTweetViewController()
+        navigationController?.pushViewController(createTweetVC, animated: true)
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-      
     }
     
     

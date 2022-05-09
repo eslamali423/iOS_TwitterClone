@@ -43,7 +43,7 @@ class AddTweetViewController: UIViewController {
         super.viewDidLoad()
 
         view.backgroundColor = .systemBackground
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Tweet", style: .done, target: self, action: #selector(didTapTweetButton))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Tweet", style: .done, target: self, action: #selector(didTapTweetButton))
         
     }
     

@@ -11,13 +11,15 @@ class MainTabBarViewController : UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
         
-        let vc1 = HomeViewController()
+        selectedIndex = 0
+        
+        let vc1 =  UINavigationController(rootViewController: HomeViewController())
+        
         let vc2 =  UINavigationController(rootViewController: SearchViewController())
         let vc3 = UINavigationController(rootViewController:  NotificationViewController())
         let vc4 = UINavigationController(rootViewController:  DirectMessagesViewController())
-        
+      
         
         vc1.tabBarItem.image = UIImage(systemName: "house")
         vc1.tabBarItem.selectedImage = UIImage(systemName: "house.fill")
@@ -35,7 +37,7 @@ class MainTabBarViewController : UITabBarController {
         
         tabBar.tintColor = .label
         
-        setViewControllers([vc1, vc2, vc3, vc4], animated: true)
+        setViewControllers([vc1, vc2, vc3, vc4], animated: false)
        
         
  
