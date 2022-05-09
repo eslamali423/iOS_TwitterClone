@@ -106,7 +106,7 @@ class TweetPreviewViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        view.backgroundColor = .systemBackground
         setupViews()
         configureConstraints()
         // Do any additional setup after loading the view.
@@ -137,7 +137,7 @@ class TweetPreviewViewController: UIViewController {
         NSLayoutConstraint.activate([
             
             avatarImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant:  20),
-            avatarImageView.topAnchor.constraint(equalTo: view.topAnchor, constant:  15),
+            avatarImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant:  15),
             avatarImageView.heightAnchor.constraint(equalToConstant: 50),
             avatarImageView.widthAnchor.constraint(equalToConstant: 50),
             
@@ -154,7 +154,7 @@ class TweetPreviewViewController: UIViewController {
             stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             stackView.leadingAnchor.constraint(equalTo: avatarImageView.leadingAnchor),
             stackView.topAnchor.constraint(equalTo: tweetText.bottomAnchor,constant: 10),
-            stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor,constant: -20),
+        
             
         ])
         

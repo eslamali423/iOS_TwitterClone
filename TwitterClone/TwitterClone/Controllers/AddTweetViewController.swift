@@ -34,6 +34,7 @@ class AddTweetViewController: UIViewController {
         let text = UITextField()
         text.placeholder = "Whats happning now?"
         text.borderStyle = .none
+        text.translatesAutoresizingMaskIntoConstraints = false
  
         return text
     }()
@@ -42,6 +43,10 @@ class AddTweetViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setupLayouts()
+        configureCosntraints()
+        
+        
         view.backgroundColor = .systemBackground
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Tweet", style: .done, target: self, action: #selector(didTapTweetButton))
         
@@ -64,11 +69,9 @@ class AddTweetViewController: UIViewController {
             
             tweetBoxField.leadingAnchor.constraint(equalTo: profileImage.trailingAnchor, constant: 10),
             tweetBoxField.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            tweetBoxField.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+            tweetBoxField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20)
             
-        
-            
-            
+  
         ])
     }
     
