@@ -9,6 +9,8 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
+    
+    //MARK:- Vars
     private let tableView : UITableView = {
         let table =  UITableView()
         table.register(TweetTableViewCell.self, forCellReuseIdentifier: TweetTableViewCell.identifier)
@@ -31,11 +33,8 @@ class HomeViewController: UIViewController {
         return button
     }()
     
-    
-    
-    
-    
-    
+ 
+    //MARK:- Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemRed
@@ -95,16 +94,13 @@ class HomeViewController: UIViewController {
         navigationItem.leftBarButtonItem = profileImage
         
         // set the right buton to the navBar
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "wand.and.stars"), style: .done, target: self, action: nil)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "sparkles"), style: .done, target: self, action: nil)
         
         
         navigationController?.navigationBar.tintColor = .systemBlue
-        
-        
-        
-        
     }
     
+    //MARK:- Create Tweet Button Action
     @objc private func didTapCreateTweetButton () {
         
         let createTweetVC = AddTweetViewController()
@@ -113,7 +109,7 @@ class HomeViewController: UIViewController {
     }
     
     
-    //MARK:- Animation
+    //MARK:- Create tweet button Animation
     func animateTweetButton()  {
         UIView.animateKeyframes(withDuration: 0.5, delay: 0, options: [.repeat, .autoreverse]) {
             self.createTweetButton.frame = CGRect(x: self.createTweetButton.frame.minX - 1, y: self.createTweetButton.frame.minY - 1, width: self.createTweetButton.frame.size.width + 2, height: self.createTweetButton.frame.size.width + 2)
@@ -135,6 +131,8 @@ class HomeViewController: UIViewController {
     
 }
 
+
+//MARK:- Extension for TableView Delegate and dataSource
 extension HomeViewController : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -164,6 +162,7 @@ extension HomeViewController : UITableViewDelegate, UITableViewDataSource {
     
 }
 
+//MARK:- Extension for TweetTableviewDelegate 
 extension HomeViewController : TweetTableViewCellDelegate {
     func tweetTableViewCellDidTapReplyButton() {
         print("reply pressed")

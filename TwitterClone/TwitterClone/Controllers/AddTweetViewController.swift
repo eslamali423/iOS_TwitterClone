@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AddTweetViewController: UIViewController {
+class AddTweetViewController: UIViewController, UITextFieldDelegate {
 
     
     //MARK:- Vars
@@ -34,6 +34,7 @@ class AddTweetViewController: UIViewController {
         let text = UITextField()
         text.placeholder = "Whats happning now?"
         text.borderStyle = .none
+        
         text.translatesAutoresizingMaskIntoConstraints = false
  
         return text
@@ -45,6 +46,7 @@ class AddTweetViewController: UIViewController {
 
         setupLayouts()
         configureCosntraints()
+        tweetBoxField.becomeFirstResponder()
         
         
         view.backgroundColor = .systemBackground
@@ -68,7 +70,7 @@ class AddTweetViewController: UIViewController {
             profileImage.widthAnchor.constraint(equalToConstant: 50),
             
             tweetBoxField.leadingAnchor.constraint(equalTo: profileImage.trailingAnchor, constant: 10),
-            tweetBoxField.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tweetBoxField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
             tweetBoxField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20)
             
   
