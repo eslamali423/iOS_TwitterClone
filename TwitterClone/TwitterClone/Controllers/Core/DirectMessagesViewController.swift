@@ -9,13 +9,32 @@ import UIKit
 
 class DirectMessagesViewController: UIViewController {
 
+    //MARK:- Vars
+    private let tableView : UITableView = {
+        let table =  UITableView()
+        table.register(TweetTableViewCell.self, forCellReuseIdentifier: TweetTableViewCell.identifier)
+        
+        return table
+    }()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
-        view.backgroundColor = .brown
-        
+        view.backgroundColor = .systemBackground
         configureNavBar()
+        
+        
+        view.addSubview(tableView)
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        tableView.frame = view.frame
+        
     }
     
     
@@ -24,8 +43,6 @@ class DirectMessagesViewController: UIViewController {
         
         // set the logo in the center
         title = "Messages"
-        
-       
         
         // set profile image in the left
         let containerView = UIControl(frame: CGRect.init(x: 0, y: 0, width: 30, height: 30))
@@ -44,14 +61,36 @@ class DirectMessagesViewController: UIViewController {
         navigationController?.navigationBar.tintColor = .systemBlue
     }
 
-    /*
-    // MARK: - Navigation
+    
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+}
+
+//MARK:- Extension for TableView Delegate and dataSource
+extension DirectMessagesViewController : UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
     }
-    */
-
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell =  tableView.dequeueReusableCell(withIdentifier: TweetTableViewCell.identifier, for: indexPath) as? TweetTableViewCell else {
+            return UITableViewCell()
+        }
+        
+       
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let tweetVC = TweetPreviewViewController()
+        //TODO:- Send The Models
+        tweetVC.modalPresentationStyle = .fullScreen
+        navigationController?.pushViewController(tweetVC, animated: true)
+        
+        
+        
+    }
+    
+    
 }
