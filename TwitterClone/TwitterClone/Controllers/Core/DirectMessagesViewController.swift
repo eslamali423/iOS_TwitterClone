@@ -12,7 +12,7 @@ class DirectMessagesViewController: UIViewController {
     //MARK:- Vars
     private let tableView : UITableView = {
         let table =  UITableView()
-        table.register(TweetTableViewCell.self, forCellReuseIdentifier: TweetTableViewCell.identifier)
+        table.register(ChatRoomTableViewCell.self, forCellReuseIdentifier: ChatRoomTableViewCell.identifier)
         
         return table
     }()
@@ -73,7 +73,8 @@ extension DirectMessagesViewController : UITableViewDelegate, UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell =  tableView.dequeueReusableCell(withIdentifier: TweetTableViewCell.identifier, for: indexPath) as? TweetTableViewCell else {
+        guard let cell =  tableView.dequeueReusableCell(withIdentifier: ChatRoomTableViewCell.identifier, for: indexPath) as? ChatRoomTableViewCell else {
+            print("Didn't get the customized cell")
             return UITableViewCell()
         }
         
@@ -81,15 +82,8 @@ extension DirectMessagesViewController : UITableViewDelegate, UITableViewDataSou
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        let tweetVC = TweetPreviewViewController()
-        //TODO:- Send The Models
-        tweetVC.modalPresentationStyle = .fullScreen
-        navigationController?.pushViewController(tweetVC, animated: true)
-        
-        
-        
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        100
     }
     
     
