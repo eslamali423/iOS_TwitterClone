@@ -99,10 +99,12 @@ class RegistrationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setupLayouts()
+        configureConstraints()
       
     }
     
-    
+    //MARK:- Layouts and Constraints
     private func setupLayouts(){
         
         view.addSubview(usernameField)
@@ -111,7 +113,6 @@ class RegistrationViewController: UIViewController {
         view.addSubview(confirmPasswordField)
         view.addSubview(signUpButton)
     }
-    
     
     private func configureConstraints(){
         
@@ -144,11 +145,40 @@ class RegistrationViewController: UIViewController {
             signUpButton.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 30),
             signUpButton.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -30),
             signUpButton.heightAnchor.constraint(equalToConstant: 70),
-            
-            
+
         ])
         
     }
+    
+    
+    //MARK:- Did Tap Sign Up Button
+    //MARK:- Did Tap Sign Up Button
+    @IBAction func signUpButton(_ sender: Any) {
+        if let username = usernameField.text, !username.isEmpty,
+           let email = emailField.text, !email.isEmpty,
+           let password = passwordField.text, !password.isEmpty,
+           let cpassword = confirmPasswordField.text, !cpassword.isEmpty,
+           password == cpassword{
+           
+            // success to get full data
+            
+//            UserManager.shared.registration(email: email, password: password) { (error) in
+//                guard error == nil else    {
+//                    ProgressHUD.showError(error?.localizedDescription)
+//                    print ("something went wrong >>>>.....")
+//                    return
+//                }
+//                ProgressHUD.showSuccess(" varification Email sent, plese verify your Email and confirm the registration")
+//                self.dismiss(animated: true, completion: nil)
+//
+//            }
+            
+        } else  {
+         //   ProgressHUD.showError("Please fill all requied data")
+        }
+    }
+    
+ 
     
 
 
