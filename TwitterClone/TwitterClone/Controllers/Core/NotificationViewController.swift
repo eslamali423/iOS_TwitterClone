@@ -8,23 +8,43 @@
 import UIKit
 
 class NotificationViewController: UIViewController {
+    
+    //MARK:- Vars
+    
+    private let segmentedControll : UISegmentedControl = {
+        let segment = UISegmentedControl (items: ["All","Mentions"])
+        segment.translatesAutoresizingMaskIntoConstraints =  false
+        segment.selectedSegmentIndex = 0
+      
+      
+        
+        
 
+        let font = UIFont.systemFont(ofSize: 16,weight: .bold)
+        segment.setTitleTextAttributes([NSAttributedString.Key.font: font], for: .normal)
+        // segment.addTarget(self, action: #selector(segmentedControlValueChanged), for: .valueChanged)
+        return segment
+    }()
+    
+    //MARK:- Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
-        view.backgroundColor = .systemGreen
+        view.backgroundColor = .systemBackground
         configureNavBar()
-       
+        setupLayouts()
+        configureConstraints()
+        
+        
     }
     
-
+    //MARK:- Configure NavBar
     func configureNavBar()  {
         
         // set the logo in the center
         title = "Notification"
         
-       
+        
         
         // set profile image in the left
         let containerView = UIControl(frame: CGRect.init(x: 0, y: 0, width: 30, height: 30))
@@ -42,5 +62,24 @@ class NotificationViewController: UIViewController {
         
         navigationController?.navigationBar.tintColor = .systemBlue
     }
-
+    
+    
+    //MARK:- Layouts and Constraints
+    
+    private func setupLayouts(){
+        view.addSubview(segmentedControll)
+    }
+    
+    private func configureConstraints(){
+        NSLayoutConstraint.activate([
+            
+            segmentedControll.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            segmentedControll.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            segmentedControll.heightAnchor.constraint(equalToConstant: 30),
+            segmentedControll.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
+            
+            
+        ])
+    }
+    
 }

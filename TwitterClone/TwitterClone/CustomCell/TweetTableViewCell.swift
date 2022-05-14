@@ -71,7 +71,7 @@ class TweetTableViewCell: UITableViewCell {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage(systemName: "heart",
-                                withConfiguration: UIImage.SymbolConfiguration(pointSize: 18, weight: .regular)), for: .normal)
+                                withConfiguration: UIImage.SymbolConfiguration(pointSize: 16, weight: .regular)), for: .normal)
         button.tintColor = .systemPink
         button.addTarget(self, action: #selector(didTapLikeButton), for: .touchUpInside)
         return button
@@ -81,7 +81,7 @@ class TweetTableViewCell: UITableViewCell {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage(systemName: "bubble.left",
-                                withConfiguration: UIImage.SymbolConfiguration(pointSize: 16, weight: .regular)), for: .normal)
+                                withConfiguration: UIImage.SymbolConfiguration(pointSize: 14, weight: .regular)), for: .normal)
         button.tintColor = .systemGray2
      //   button.addTarget(self, action: #selector(didTapReplyButton), for: .touchUpInside)
         return button
@@ -91,7 +91,7 @@ class TweetTableViewCell: UITableViewCell {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage(systemName: "arrow.2.squarepath",
-                                withConfiguration: UIImage.SymbolConfiguration(pointSize: 18, weight: .regular)), for: .normal)
+                                withConfiguration: UIImage.SymbolConfiguration(pointSize: 16, weight: .regular)), for: .normal)
         button.tintColor = .systemGray
         button.addTarget(self, action: #selector(didTapRetweetButton), for: .touchUpInside)
         return button
@@ -101,7 +101,7 @@ class TweetTableViewCell: UITableViewCell {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage(systemName: "square.and.arrow.up",
-                                withConfiguration: UIImage.SymbolConfiguration(pointSize: 18, weight: .regular)), for: .normal)
+                                withConfiguration: UIImage.SymbolConfiguration(pointSize:   16, weight: .regular)), for: .normal)
         button.tintColor = .systemGray
         button.addTarget(self, action: #selector(didTapShareButton), for: .touchUpInside)
         return button

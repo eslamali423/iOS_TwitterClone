@@ -20,7 +20,7 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = .systemPink
+        view.backgroundColor = .systemBackground
      
         
         //set the search bar in the navogationview title
@@ -33,7 +33,7 @@ class SearchViewController: UIViewController {
     func configureNavBar()  {
         
         // set the logo in the center
-        title = "Notification"
+        title = "Search"
         
        
         

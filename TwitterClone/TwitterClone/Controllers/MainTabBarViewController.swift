@@ -24,6 +24,7 @@ class MainTabBarViewController : UITabBarController {
         vc1.tabBarItem.image = UIImage(systemName: "house")
         vc1.tabBarItem.selectedImage = UIImage(systemName: "house.fill")
         
+        
         vc2.tabBarItem.image = UIImage(systemName: "magnifyingglass")
         
         vc3.tabBarItem.image = UIImage(systemName: "bell")
@@ -32,6 +33,11 @@ class MainTabBarViewController : UITabBarController {
         vc4.tabBarItem.image = UIImage(systemName: "envelope")
         vc4.tabBarItem.selectedImage = UIImage(systemName: "envelope.fill")
         
+        
+        vc1.title = "Home"
+        vc2.title = "Search"
+        vc3.title = "Notification"
+        vc4.title = "Messages"
         
        
         
