@@ -33,7 +33,7 @@ class RegistrationViewController: UIViewController {
     private let emailField : UITextField = {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.placeholder = "Username"
+        textField.placeholder = "Email"
         textField.layer.cornerRadius = 15
         textField.clipsToBounds = true
 
@@ -68,7 +68,7 @@ class RegistrationViewController: UIViewController {
     private let confirmPasswordField : UITextField = {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.placeholder = "Password"
+        textField.placeholder = "Confirm Password"
         textField.borderStyle = UITextField.BorderStyle.roundedRect
         textField.font = UIFont.systemFont(ofSize: 15)
         textField.layer.cornerRadius = 15

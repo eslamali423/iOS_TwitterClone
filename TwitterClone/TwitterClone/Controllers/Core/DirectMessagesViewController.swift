@@ -55,7 +55,7 @@ class DirectMessagesViewController: UIViewController {
         navigationItem.leftBarButtonItem = profileImage
         
         // set the right buton to the navBar
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "gear"), style: .done, target: self, action: nil)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "gearshape"), style: .done, target: self, action: nil)
         
         
         navigationController?.navigationBar.tintColor = .systemBlue
