@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DirectMessagesViewController: UIViewController {
+class DirectMessagesViewController: BaseViewController {
 
     //MARK:- Vars
     private let tableView : UITableView = {
@@ -22,6 +22,7 @@ class DirectMessagesViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         configureNavBar()
+        configureNavBarWithProfileImage()
         
         
         view.addSubview(tableView)

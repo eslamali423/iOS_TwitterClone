@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NotificationViewController: UIViewController {
+class NotificationViewController: BaseViewController {
     
     //MARK:- Vars
     
@@ -32,6 +32,7 @@ class NotificationViewController: UIViewController {
         
         view.backgroundColor = .systemBackground
         configureNavBar()
+        configureNavBarWithProfileImage()
         setupLayouts()
         configureConstraints()
         

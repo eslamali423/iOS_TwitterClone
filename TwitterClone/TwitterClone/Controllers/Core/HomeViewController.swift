@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: BaseViewController {
     
     
     //MARK:- Vars
@@ -39,8 +39,8 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemRed
         
-        
         configureNavBar()
+        //configureNavBar()
        // animateTweetButton()
         view.addSubview(tableView)
         view.addSubview(createTweetButton)
@@ -83,17 +83,6 @@ class HomeViewController: UIViewController {
         imageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
         imageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
         
-        // set profile image in the left
-        let containerView = UIControl(frame: CGRect.init(x: 0, y: 0, width: 30, height: 30))
-        containerView.addTarget(self, action: #selector(didTapProfileImage), for: .touchUpInside)
-        let image = UIImageView(frame: CGRect.init(x: 0, y: 0, width: 30, height: 30))
-        image.backgroundColor = .systemBlue
-        image.layer.cornerRadius = image.layer.frame.size.width / 2
-        containerView.addSubview(image)
-        let profileImage = UIBarButtonItem(customView: containerView)
-        profileImage.width = 20
-        
-        navigationItem.leftBarButtonItem = profileImage
         
         // set the right buton to the navBar
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "sparkles"), style: .done, target: self, action: nil)
@@ -102,10 +91,7 @@ class HomeViewController: UIViewController {
         navigationController?.navigationBar.tintColor = .systemBlue
     }
     
-    @objc func didTapProfileImage() {
-        let profileVC = ProfileViewController()
-        navigationController?.pushViewController(profileVC, animated: true)
-    }
+  
     
     
     //MARK:- Create Tweet Button Action
