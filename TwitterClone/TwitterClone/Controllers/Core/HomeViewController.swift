@@ -41,7 +41,7 @@ class HomeViewController: UIViewController {
         
         
         configureNavBar()
-        // animateTweetButton()
+       // animateTweetButton()
         view.addSubview(tableView)
         view.addSubview(createTweetButton)
         tableView.delegate = self
@@ -85,12 +85,14 @@ class HomeViewController: UIViewController {
         
         // set profile image in the left
         let containerView = UIControl(frame: CGRect.init(x: 0, y: 0, width: 30, height: 30))
+        containerView.addTarget(self, action: #selector(didTapProfileImage), for: .touchUpInside)
         let image = UIImageView(frame: CGRect.init(x: 0, y: 0, width: 30, height: 30))
         image.backgroundColor = .systemBlue
         image.layer.cornerRadius = image.layer.frame.size.width / 2
         containerView.addSubview(image)
         let profileImage = UIBarButtonItem(customView: containerView)
         profileImage.width = 20
+        
         navigationItem.leftBarButtonItem = profileImage
         
         // set the right buton to the navBar
@@ -99,6 +101,12 @@ class HomeViewController: UIViewController {
         
         navigationController?.navigationBar.tintColor = .systemBlue
     }
+    
+    @objc func didTapProfileImage() {
+        let profileVC = ProfileViewController()
+        navigationController?.pushViewController(profileVC, animated: true)
+    }
+    
     
     //MARK:- Create Tweet Button Action
     @objc private func didTapCreateTweetButton () {
@@ -112,7 +120,7 @@ class HomeViewController: UIViewController {
     //MARK:- Create tweet button Animation
     func animateTweetButton()  {
         UIView.animateKeyframes(withDuration: 0.5, delay: 0, options: [.repeat, .autoreverse]) {
-            self.createTweetButton.frame = CGRect(x: self.createTweetButton.frame.minX - 1, y: self.createTweetButton.frame.minY - 1, width: self.createTweetButton.frame.size.width + 2, height: self.createTweetButton.frame.size.width + 2)
+            self.createTweetButton.frame = CGRect(x: self.createTweetButton.frame.minX  - 1, y: self.createTweetButton.frame.minY - 1, width: self.createTweetButton.frame.size.width + 2, height: self.createTweetButton.frame.size.width + 2)
         }
     }
     

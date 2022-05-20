@@ -20,7 +20,7 @@ class NotificationViewController: UIViewController {
         
         
 
-        let font = UIFont.systemFont(ofSize: 16,weight: .bold)
+        let font = UIFont.systemFont(ofSize: 16,weight: .regular)
         segment.setTitleTextAttributes([NSAttributedString.Key.font: font], for: .normal)
         // segment.addTarget(self, action: #selector(segmentedControlValueChanged), for: .valueChanged)
         return segment

@@ -21,6 +21,7 @@
 		287690AC281067E8007CD8C4 /* TweetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287690AB281067E8007CD8C4 /* TweetTableViewCell.swift */; };
 		287A94C62811F66B004950F5 /* AddTweetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287A94C52811F66B004950F5 /* AddTweetViewController.swift */; };
 		287A94C928133E8B004950F5 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287A94C828133E8B004950F5 /* LoginViewController.swift */; };
+		28AB4A912837FB9000257033 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28AB4A902837FB9000257033 /* ProfileViewController.swift */; };
 		28EFDD85282C4DA200748F9E /* ChatRoomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28EFDD84282C4DA200748F9E /* ChatRoomTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,7 @@
 		287690AB281067E8007CD8C4 /* TweetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetTableViewCell.swift; sourceTree = "<group>"; };
 		287A94C52811F66B004950F5 /* AddTweetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTweetViewController.swift; sourceTree = "<group>"; };
 		287A94C828133E8B004950F5 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		28AB4A902837FB9000257033 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		28EFDD84282C4DA200748F9E /* ChatRoomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatRoomTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -94,6 +96,7 @@
 				280F52A928230B0F00F95E58 /* TweetPreviewViewController.swift */,
 				2876908728106279007CD8C4 /* MainTabBarViewController.swift */,
 				28492361282EE4AF00CDA599 /* RegistrationViewController.swift */,
+				28AB4A902837FB9000257033 /* ProfileViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -191,6 +194,7 @@
 				2876908828106279007CD8C4 /* MainTabBarViewController.swift in Sources */,
 				287690A3281064A2007CD8C4 /* NotificationViewController.swift in Sources */,
 				287A94C62811F66B004950F5 /* AddTweetViewController.swift in Sources */,
+				28AB4A912837FB9000257033 /* ProfileViewController.swift in Sources */,
 				28492362282EE4AF00CDA599 /* RegistrationViewController.swift in Sources */,
 				2876908428106279007CD8C4 /* AppDelegate.swift in Sources */,
 				2876908628106279007CD8C4 /* SceneDelegate.swift in Sources */,
