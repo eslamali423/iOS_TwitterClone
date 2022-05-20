@@ -85,7 +85,7 @@ class ChatRoomTableViewCell: UITableViewCell {
             username.leadingAnchor.constraint(equalTo: profileImage.trailingAnchor,constant: 10),
             username.topAnchor.constraint(equalTo: contentView.topAnchor,constant: 20),
             
-            messageDate.trailingAnchor.constraint(equalTo: contentView.trailingAnchor,constant: -10),
+            messageDate.trailingAnchor.constraint(equalTo: contentView.trailingAnchor,constant: -20),
             messageDate.centerYAnchor.constraint(equalTo: username.centerYAnchor),
             
             lastMessage.leadingAnchor.constraint(equalTo: username.leadingAnchor),
