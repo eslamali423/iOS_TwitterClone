@@ -91,18 +91,26 @@ class ProfileViewController: UIViewController {
             profileImageView.widthAnchor.constraint(equalToConstant: 120),
             profileImageView.heightAnchor.constraint(equalToConstant: 120),
             
+            
+            nameLabel.topAnchor.constraint(equalTo: profileImageView.bottomAnchor,constant: 10),
             nameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 10),
-            nameLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 100)
             
-        
+            usernameLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor,constant: 10),
+            usernameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 10),
+            
+            editProfileButton.topAnchor.constraint(equalTo: coverImageView.bottomAnchor,constant: 10),
+            editProfileButton.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -10),
+            editProfileButton.widthAnchor.constraint(equalToConstant: 70),
+            editProfileButton.heightAnchor.constraint(equalToConstant: 30),
             
             
             
+            
+            
+  
         ])
        
         
     }
-
-    
 
 }
