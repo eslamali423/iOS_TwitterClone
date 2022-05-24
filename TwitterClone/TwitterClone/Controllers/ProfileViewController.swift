@@ -33,26 +33,42 @@ class ProfileViewController: UIViewController {
     private let editProfileButton : UIButton = {
         let button  = UIButton()
         button.setTitle("Edit Profile", for: .normal)
+        button.setTitleColor(.systemBlue, for: .normal)
         button.layer.cornerRadius = 10
         button.backgroundColor = .clear
-        button.layer.borderWidth = 1
+        button.layer.borderWidth = 2
+        button.layer.borderColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
         
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
+        button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
     private let nameLabel : UILabel = {
         let label = UILabel()
         label.textColor = .black
-        label.font = .systemFont(ofSize: 16, weight : .bold)
+        label.font = .systemFont(ofSize: 18, weight : .heavy)
         label.text = "messdupthoughts"
+        label.translatesAutoresizingMaskIntoConstraints = false
+
         return label
     }()
     private let usernameLabel : UILabel = {
         let label = UILabel()
         label.textColor = .secondaryLabel
-        label.font = .systemFont(ofSize: 12, weight : .regular)
+        label.font = .systemFont(ofSize: 14, weight : .semibold)
         label.text = "@Eslam.ali423"
+        label.translatesAutoresizingMaskIntoConstraints = false
+
         return label
+    }()
+    
+    private let tableView : UITableView = {
+        let table =  UITableView()
+      //  table.register(TweetTableViewCell.self, forCellReuseIdentifier: TweetTableViewCell.identifier)
+        table.translatesAutoresizingMaskIntoConstraints = false
+        table.backgroundColor = .gray
+        return table
     }()
     
     
@@ -60,7 +76,7 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        navigationController?.navigationBar.alpha = 0
+      
         
         setupLayouts()
         configureConstraints()
@@ -92,22 +108,20 @@ class ProfileViewController: UIViewController {
             profileImageView.heightAnchor.constraint(equalToConstant: 120),
             
             
+            
             nameLabel.topAnchor.constraint(equalTo: profileImageView.bottomAnchor,constant: 10),
             nameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 10),
-            
-            usernameLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor,constant: 10),
+            nameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -10),
+
+            usernameLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor,constant: 4),
             usernameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 10),
-            
+
             editProfileButton.topAnchor.constraint(equalTo: coverImageView.bottomAnchor,constant: 10),
             editProfileButton.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -10),
-            editProfileButton.widthAnchor.constraint(equalToConstant: 70),
+            editProfileButton.widthAnchor.constraint(equalToConstant: 100),
             editProfileButton.heightAnchor.constraint(equalToConstant: 30),
-            
-            
-            
-            
-            
   
+     
         ])
        
         
