@@ -138,7 +138,7 @@ extension HomeViewController : UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         
-        cell.delegate = self
+       cell.delegate = self
         return cell
     }
     

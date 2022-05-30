@@ -16,6 +16,8 @@ class BaseViewController: UIViewController {
     }
     
     
+    
+    
     //MARK:- Configure Navigation Controller Function
     func configureNavBarWithProfileImage()  {
         
