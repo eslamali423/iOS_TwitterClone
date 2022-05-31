@@ -16,6 +16,8 @@ class LoginViewController: UIViewController {
     }
     
 
+    var authViewModel = AuthViewModel()
+    
     
     //MARK:- Outlets
     
@@ -44,7 +46,7 @@ class LoginViewController: UIViewController {
     private let usernameField : UITextField = {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.placeholder = "Username"
+        textField.placeholder = "Email.."
         textField.layer.cornerRadius = 15
         textField.clipsToBounds = true
 
@@ -63,7 +65,7 @@ class LoginViewController: UIViewController {
     private let passwordField : UITextField = {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.placeholder = "Password"
+        textField.placeholder = "Password.."
         textField.borderStyle = UITextField.BorderStyle.roundedRect
         textField.font = UIFont.systemFont(ofSize: 15)
         textField.layer.cornerRadius = 15
@@ -93,7 +95,7 @@ class LoginViewController: UIViewController {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Sign In", for: .normal)
-        button.backgroundColor = .brown
+        button.backgroundColor = .systemBlue
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 15
         button.titleLabel?.font = .systemFont(ofSize: 20, weight : .medium)
@@ -206,6 +208,17 @@ class LoginViewController: UIViewController {
             //TODO:- show error messaage in progress (ALL Fields Are Requierd)
          //   ProgressHUD.showError("ALL Fields Are Requierd")
             return
+        }
+        
+        authViewModel.login(email: username, password: password) { (isSuccess) in
+            if isSuccess {
+                let tabBarVc = MainTabBarViewController()
+                tabBarVc.modalPresentationStyle = .fullScreen
+                self.present(tabBarVc, animated: true, completion: nil)
+            }else {
+                //TODO:- Show Error Message
+                
+            }
         }
         if username == Constant.username && password == Constant.password {
           
