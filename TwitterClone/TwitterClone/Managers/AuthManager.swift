@@ -17,7 +17,7 @@ class AuthManager {
         Auth.auth().signIn(withEmail: email, password: password) { (authResult, error) in
             if error == nil && authResult!.user.isEmailVerified  {
             completion(error,true)
-                self.downloadUserFormFirestore(userID: authResult!.user.uid)
+           //     self.downloadUserFormFirestore(userID: authResult!.user.uid)
 
             }else {
                 print("something went worng by login ")
