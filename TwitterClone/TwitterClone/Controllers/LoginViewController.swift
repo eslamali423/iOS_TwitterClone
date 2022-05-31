@@ -122,6 +122,7 @@ class LoginViewController: UIViewController {
         button.setTitle("Register now ", for: .normal)
         button.setTitleColor(.label, for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 18, weight : .bold)
+        button.addTarget(self, action: #selector(didTabRegostrationButton), for: .touchUpInside)
         return button
     }()
     
@@ -220,28 +221,15 @@ class LoginViewController: UIViewController {
                 
             }
         }
-        if username == Constant.username && password == Constant.password {
-          
-            
-            // Navigate To Home View Controller
-           
-            let HomeVc = HomeViewController()
-            HomeVc.modalPresentationStyle = .fullScreen
-            self.present(HomeVc, animated: true)
-            UserDefaults.standard.set(true, forKey: "isLoggedIn")
-            UserDefaults.standard.synchronize()
-            
-        }else {
-            // TODO:- Show Custom Error Message
-      //      ProgressHUD.showError("Username or Password worng, Please try again")
-
-            print("Error Login")
-        }
+   
         
+    }
+    
+    @objc func didTabRegostrationButton () {
         
-
+        let registrationVC = RegistrationViewController()
         
-        
+        present(registrationVC, animated: true, completion: nil)
         
     }
     
