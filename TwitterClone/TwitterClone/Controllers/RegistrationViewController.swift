@@ -11,6 +11,25 @@ class RegistrationViewController: UIViewController {
 
     //MARK:- Vars
     
+    private let nameField : UITextField = {
+        let textField = UITextField()
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.placeholder = "Username"
+        textField.layer.cornerRadius = 15
+        textField.clipsToBounds = true
+
+        textField.borderStyle = UITextField.BorderStyle.roundedRect
+        textField.font = UIFont.systemFont(ofSize: 15)
+      
+        textField.autocorrectionType = UITextAutocorrectionType.no
+        textField.keyboardType = UIKeyboardType.default
+        textField.returnKeyType = UIReturnKeyType.done
+        textField.clearButtonMode = UITextField.ViewMode.whileEditing
+        
+        
+        return textField
+    }()
+   
     private let usernameField : UITextField = {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
@@ -90,10 +109,12 @@ class RegistrationViewController: UIViewController {
         button.setTitleColor(.white, for: .normal)
         button.layer.cornerRadius = 15
         button.titleLabel?.font = .systemFont(ofSize: 20, weight : .medium)
-       // button.addTarget(self, action: #selector(didTapSignInButton), for: .touchUpInside)
+        button.addTarget(self, action: #selector(didTapSignUpButton), for: .touchUpInside)
 
         return button
     }()
+    
+    var viewModel = AuthViewModel()
     
     
     override func viewDidLoad() {
@@ -106,7 +127,7 @@ class RegistrationViewController: UIViewController {
     
     //MARK:- Layouts and Constraints
     private func setupLayouts(){
-        
+        view.addSubview(nameField)
         view.addSubview(usernameField)
         view.addSubview(emailField)
         view.addSubview(passwordField)
@@ -118,7 +139,12 @@ class RegistrationViewController: UIViewController {
         
         NSLayoutConstraint.activate([
         
-            usernameField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,constant: 40),
+            nameField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor,constant: 40),
+            nameField.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 30),
+            nameField.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -30),
+            nameField.heightAnchor.constraint(equalToConstant: 70),
+            
+            usernameField.topAnchor.constraint(equalTo: nameField.bottomAnchor,constant: 8),
             usernameField.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 30),
             usernameField.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -30),
             usernameField.heightAnchor.constraint(equalToConstant: 70),
@@ -151,16 +177,26 @@ class RegistrationViewController: UIViewController {
     }
     
     
+    
     //MARK:- Did Tap Sign Up Button
-    //MARK:- Did Tap Sign Up Button
-    @IBAction func signUpButton(_ sender: Any) {
+   @objc func didTapSignUpButton() {
         if let username = usernameField.text, !username.isEmpty,
+           let name =  nameField.text, !name.isEmpty,
            let email = emailField.text, !email.isEmpty,
            let password = passwordField.text, !password.isEmpty,
            let cpassword = confirmPasswordField.text, !cpassword.isEmpty,
            password == cpassword{
            
             // success to get full data
+            
+            viewModel.signUp(email: email, password: password, name: name, username: username) { (isSucess) in
+                if isSucess {
+                    print("Sucesssfully ")
+                }else {
+                    print("error to signUp")
+                }
+            }
+            
             
 //            UserManager.shared.registration(email: email, password: password) { (error) in
 //                guard error == nil else    {

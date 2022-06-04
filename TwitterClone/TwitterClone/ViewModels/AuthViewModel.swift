@@ -20,5 +20,15 @@ class AuthViewModel {
         
     }
     
+    public func signUp(email : String, password :  String, name: String, username:String,completion: @escaping (Bool)-> Void ){
+        AuthManager.shared.registration(email: email, password: password, name: name, username: username) { (error) in
+            if error == nil {
+                print("successs")
+            }
+        }
+        
+        
+    }
+    
     
 }

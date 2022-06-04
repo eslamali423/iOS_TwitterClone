@@ -14,7 +14,7 @@ class AuthManager {
     
   
     //MARK:- registration function with email and password
-    func registration(email : String, password :  String, completion: @escaping (_ error : Error?)-> Void )  {
+    func registration(email : String, password :  String, name: String, username:String, completion: @escaping (_ error : Error?)-> Void )  {
         Auth.auth().createUser(withEmail: email, password: password) { (results, error) in
          
             completion(error)
@@ -24,9 +24,13 @@ class AuthManager {
                 print(error?.localizedDescription)
             
             })
-            
+       
             if results?.user != nil {
-               // let user =  User(id: results!.user.uid, username: email, email: email, pushID: "", avatarLink: "", status: "hey i'm using this chat App ")
+                let user =  User(id: results!.user.uid, name: name, username: username, email: email, bio: "Hey, I'm Using Twitter App")
+                
+                print(user.name)
+                print(user.username)
+                
 //self.saveUserToFirestore(user: user)
                // saveUserLocally(user)
             }
