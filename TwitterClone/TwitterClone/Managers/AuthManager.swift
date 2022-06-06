@@ -54,4 +54,13 @@ class AuthManager {
         }
     }
     
+    
+    func signOut () {
+        do {
+            try Auth.auth().signOut()
+        }catch {
+            print("can not sign out")
+        }
+    }
+    
 }
