@@ -38,7 +38,7 @@ class ProfileViewController: UIViewController {
         button.backgroundColor = .clear
         button.layer.borderWidth = 2
         button.layer.borderColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
-        
+        button.addTarget(self, action: #selector(didTapEditButton), for: .touchUpInside)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -161,6 +161,17 @@ class ProfileViewController: UIViewController {
         navigationController?.pushViewController(createTweetVC, animated: true)
         
     }
+    
+    //MARK:- Edit Profile  Button Action
+    @objc private func didTapEditButton () {
+        
+        let editProfileVC = EditProfileViewController()
+        editProfileVC.modalPresentationStyle = .fullScreen
+        navigationController?.pushViewController(editProfileVC, animated: true)
+        
+    }
+    
+    
 }
 
 extension ProfileViewController : UITableViewDelegate, UITableViewDataSource {
